@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nhập kỹ năng — Career Sight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="skills">
+  <a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
+  <div data-component="header"></div>
+  <main id="main" class="page">
+    <div class="container">
+      <div data-component="stepper" data-step="1"></div>
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Bước 2 · Đánh giá tương thích</span>
+          <h1 class="h2">Bạn đang có những kỹ năng nào?</h1>
+          <p class="muted" id="target-line"></p>
+        </div>
+        <button class="btn btn--ghost btn--sm" type="button" data-demo>Dùng dữ liệu mẫu</button>
+      </div>
+
+      <div class="skill-input">
+        <div class="card card--pad">
+          <div class="row row--between" style="margin-bottom:1.25rem">
+            <div class="tabs" role="tablist" aria-label="Cách nhập kỹ năng">
+              <button class="tab" type="button" role="tab" id="tab-manual" aria-controls="panel-manual" aria-selected="true">Nhập tay</button>
+              <button class="tab" type="button" role="tab" id="tab-jd" aria-controls="panel-jd" aria-selected="false">Dán JD</button>
+            </div>
+            <button class="btn btn--outline btn--sm cv-btn" type="button" aria-disabled="true" title="Tính năng giai đoạn sau">
+              <span data-icon="upload" data-size="16"></span>Tải CV <span class="badge badge--soon">Sắp ra mắt</span></button>
+          </div>
+
+          <!-- Nhập tay -->
+          <div id="panel-manual" role="tabpanel" aria-labelledby="tab-manual" class="stack stack--lg">
+            <div class="field">
+              <label class="field__label" for="skill-q">Gõ tên kỹ năng</label>
+              <div class="ac input-wrap input-wrap--icon">
+                <span class="input-wrap__icon" data-icon="search" data-size="18"></span>
+                <input class="input" id="skill-q" type="text" placeholder="VD: SQL, Power BI, tiếng Anh…">
+              </div>
+              <p class="field__hint">Gợi ý từ danh mục kỹ năng chuẩn (có tên gọi khác, viết tắt, tiếng Việt lẫn tiếng Anh).</p>
+            </div>
+            <div>
+              <p class="field__label" style="margin-bottom:.5rem">Gợi ý nhanh cho vị trí bạn chọn</p>
+              <div class="chip-row" id="quick"></div>
+            </div>
+            <div>
+              <div class="row row--between" style="margin-bottom:.5rem">
+                <p class="field__label">Kỹ năng của bạn (<span id="picked-count">0</span>)</p>
+                <span class="xs muted">Chọn mức độ cho từng kỹ năng (tùy chọn)</span>
+              </div>
+              <div class="picked" id="picked" data-empty="Chưa có kỹ năng nào — gõ ở trên hoặc bấm gợi ý."></div>
+            </div>
+          </div>
+
+          <!-- Dán JD -->
+          <div id="panel-jd" role="tabpanel" aria-labelledby="tab-jd" class="stack stack--lg" hidden>
+            <div class="field">
+              <label class="field__label" for="jd-text">Dán một JD bất kỳ bạn quan tâm</label>
+              <textarea class="textarea" id="jd-text" placeholder="Dán nội dung mô tả công việc vào đây…"></textarea>
+              <p class="field__hint">JD này chỉ dùng để so sánh với kỹ năng của bạn và chỉ hiển thị lại cho chính bạn.</p>
+            </div>
+            <label class="check"><input type="checkbox" id="jd-consent"> <span>Cho phép Career Sight dùng JD này (đã ẩn danh) vào dữ liệu thống kê. <a href="method.html#privacy">Tìm hiểu thêm</a></span></label>
+            <div class="btn-row">
+              <button class="btn btn--dark" type="button" id="jd-extract"><span data-icon="sparkle" data-size="18"></span>Rút kỹ năng yêu cầu</button>
+              <button class="btn btn--ghost btn--sm" type="button" id="jd-sample">Dán JD mẫu</button>
+            </div>
+            <div id="jd-result" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <aside class="stack sticky">
+          <div class="card card--pad stack">
+            <h2 class="h3">Tóm tắt</h2>
+            <ul class="list-plain" id="summary"></ul>
+            <div id="few-warn"></div>
+            <button class="btn btn--primary btn--lg btn--block" type="button" id="go">Xem điểm tương thích</button>
+            <a class="btn btn--ghost btn--block" href="position.html"><span data-icon="back" data-size="16"></span>Quay lại chọn vị trí</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <dialog class="dialog" id="few-dialog" aria-labelledby="few-title">
+    <div class="dialog__head"><h2 class="h3" id="few-title">Nhập thêm để kết quả chính xác hơn</h2></div>
+    <div class="dialog__body"><p class="muted small" id="few-text"></p></div>
+    <div class="dialog__foot">
+      <button class="btn btn--ghost" type="button" id="few-go">Vẫn xem kết quả</button>
+      <button class="btn btn--primary" type="button" data-close-dialog>Nhập thêm kỹ năng</button>
+    </div>
+  </dialog>
+  <div data-component="footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/engine.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pages/skills.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Đăng nhập / Đăng ký — Career Sight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="auth">
+  <a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
+  <div data-component="header"></div>
+  <main id="main" class="auth-page">
+    <div class="auth-grid">
+      <div class="card auth-card">
+        <div class="auth-card__head">
+          <h1 id="auth-title">Chào mừng tới Career Sight</h1>
+          <p class="muted small">Lưu kết quả, tạo lộ trình học và theo dõi tiến độ của bạn.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Đăng nhập hoặc đăng ký" id="auth-tabs">
+          <button class="tab" type="button" role="tab" data-tab="login" aria-controls="panel-login" aria-selected="true">Đăng nhập</button>
+          <button class="tab" type="button" role="tab" data-tab="register" aria-controls="panel-register" aria-selected="false">Đăng ký</button>
+        </div>
+
+        <div id="social-block">
+          <button class="btn btn--outline btn--block" type="button" id="google-btn"><span data-icon="google" data-size="18"></span>Tiếp tục với Google</button>
+          <div class="divider">hoặc dùng email</div>
+        </div>
+
+        <!-- ĐĂNG NHẬP -->
+        <div id="panel-login" role="tabpanel">
+          <form class="form" data-validate data-reset="off" id="login-form">
+            <div class="field">
+              <label class="field__label" for="l-email">Email</label>
+              <input class="input" id="l-email" type="email" required autocomplete="email" placeholder="ban@example.com">
+              <p class="field__error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="l-pass">Mật khẩu</label>
+              <div class="input-wrap">
+                <input class="input" id="l-pass" type="password" required minlength="8" autocomplete="current-password" placeholder="••••••••">
+                <button class="input-wrap__btn" type="button" data-toggle-password="#l-pass" aria-label="Hiện mật khẩu"><span data-icon="eye" data-size="18"></span></button>
+              </div>
+              <p class="field__error"></p>
+            </div>
+            <div class="form-between">
+              <label class="check"><input type="checkbox" checked> <span>Ghi nhớ đăng nhập</span></label>
+              <a class="link" href="#forgot" data-goto="forgot">Quên mật khẩu?</a>
+            </div>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">Đăng nhập</button>
+          </form>
+        </div>
+
+        <!-- ĐĂNG KÝ -->
+        <div id="panel-register" role="tabpanel" hidden>
+          <form class="form" data-validate data-reset="off" id="register-form">
+            <div class="field">
+              <label class="field__label" for="r-name">Họ tên hoặc biệt danh <span class="req">*</span></label>
+              <input class="input" id="r-name" required minlength="2" autocomplete="nickname" placeholder="VD: Minh Anh">
+              <p class="field__error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="r-email">Email <span class="req">*</span></label>
+              <input class="input" id="r-email" type="email" required autocomplete="email" placeholder="ban@example.com">
+              <p class="field__error"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="r-pass">Mật khẩu <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input class="input" id="r-pass" type="password" required minlength="8" autocomplete="new-password" placeholder="Tối thiểu 8 ký tự">
+                <button class="input-wrap__btn" type="button" data-toggle-password="#r-pass" aria-label="Hiện mật khẩu"><span data-icon="eye" data-size="18"></span></button>
+              </div>
+              <p class="field__error"></p>
+            </div>
+            <fieldset class="field" style="border:0;padding:0;margin:0">
+              <legend class="field__label" style="margin-bottom:.4rem">Mục tiêu sử dụng <span class="req">*</span></legend>
+              <div class="choice-group">
+                <label class="choice"><input type="radio" name="goal" value="Sinh viên" required><span>Sinh viên</span></label>
+                <label class="choice"><input type="radio" name="goal" value="Đổi ngành"><span>Đổi ngành</span></label>
+                <label class="choice"><input type="radio" name="goal" value="Nâng cấp"><span>Nâng cấp</span></label>
+              </div>
+              <p class="field__error"></p>
+            </fieldset>
+            <div class="field">
+              <label class="check"><input type="checkbox" id="r-consent" required>
+                <span>Tôi đồng ý với điều khoản và việc xử lý dữ liệu cá nhân theo Luật Bảo vệ dữ liệu cá nhân 2025. <a href="method.html#privacy" target="_blank">Đọc điều khoản</a></span></label>
+              <p class="field__error"></p>
+            </div>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">Đăng ký</button>
+          </form>
+        </div>
+
+        <!-- QUÊN MẬT KHẨU -->
+        <div id="panel-forgot" hidden>
+          <form class="form" data-validate data-success="Đã gửi liên kết đặt lại mật khẩu (giả lập)." id="forgot-form">
+            <p class="muted small">Nhập email đã đăng ký, chúng tôi sẽ gửi liên kết đặt lại mật khẩu.</p>
+            <div class="field">
+              <label class="field__label" for="f-email">Email</label>
+              <input class="input" id="f-email" type="email" required autocomplete="email" placeholder="ban@example.com">
+              <p class="field__error"></p>
+            </div>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">Gửi liên kết đặt lại</button>
+            <a class="link" href="#login" data-goto="login" style="text-align:center">← Quay lại đăng nhập</a>
+          </form>
+        </div>
+      </div>
+
+      <!-- Dữ liệu của bạn được dùng như thế nào -->
+      <aside class="card data-use">
+        <h2><span data-icon="shield"></span>Dữ liệu của bạn được dùng như thế nào?</h2>
+        <ul>
+          <li><span data-icon="check" data-size="16"></span><span>Kỹ năng và vị trí bạn nhập chỉ dùng để tính điểm, khoảng trống và lộ trình cho chính bạn.</span></li>
+          <li><span data-icon="check" data-size="16"></span><span>JD bạn dán chỉ dùng để so sánh; chỉ đưa vào thống kê khi bạn tick đồng ý riêng.</span></li>
+          <li><span data-icon="check" data-size="16"></span><span>Bạn có thể xem, xuất và xóa toàn bộ dữ liệu bất kỳ lúc nào trong Hồ sơ & quyền riêng tư.</span></li>
+          <li><span data-icon="check" data-size="16"></span><span>Không bán dữ liệu, không chia sẻ cho nhà tuyển dụng khi chưa có sự đồng ý của bạn.</span></li>
+        </ul>
+        <a class="link" href="method.html#privacy" style="display:inline-block;margin-top:1rem">Đọc điều khoản đầy đủ →</a>
+      </aside>
+    </div>
+  </main>
+  <div data-component="footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/engine.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pages/auth.js"></script>
+</body>
+</html>

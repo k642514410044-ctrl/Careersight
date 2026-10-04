@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hồ sơ & quyền riêng tư — Career Sight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="profile">
+  <a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
+  <div data-component="header"></div>
+  <main id="main" class="page">
+    <div class="container container--narrow">
+      <div id="profile-root"></div>
+    </div>
+  </main>
+
+  <dialog class="dialog" id="edit-dialog" aria-labelledby="ed-title">
+    <div class="dialog__head"><h2 class="h3" id="ed-title">Sửa thông tin</h2>
+      <button class="icon-btn" type="button" data-close-dialog aria-label="Đóng"><span data-icon="close" data-size="18"></span></button></div>
+    <form class="dialog__body form" id="edit-form" data-validate data-reset="off">
+      <div class="field"><label class="field__label" for="ep-name">Họ tên hoặc biệt danh</label><input class="input" id="ep-name" required minlength="2"><p class="field__error"></p></div>
+      <div class="field"><label class="field__label" for="ep-email">Email</label><input class="input" id="ep-email" type="email" required><p class="field__error"></p></div>
+      <label class="field"><span class="field__label">Mục tiêu sử dụng</span><select class="select" id="ep-goal"><option>Sinh viên</option><option>Đổi ngành</option><option>Nâng cấp</option></select></label>
+      <div class="btn-row btn-row--end"><button class="btn btn--ghost" type="button" data-close-dialog>Hủy</button><button class="btn btn--primary" type="submit">Lưu thay đổi</button></div>
+    </form>
+  </dialog>
+
+  <dialog class="dialog" id="data-dialog" aria-labelledby="dd-title">
+    <div class="dialog__head"><h2 class="h3" id="dd-title">Dữ liệu Career Sight lưu về bạn</h2>
+      <button class="icon-btn" type="button" data-close-dialog aria-label="Đóng"><span data-icon="close" data-size="18"></span></button></div>
+    <div class="dialog__body"><pre class="data-pre" id="data-pre"></pre></div>
+  </dialog>
+
+  <dialog class="dialog" id="delete-dialog" aria-labelledby="del-title">
+    <div class="dialog__head"><h2 class="h3" id="del-title">Xóa toàn bộ dữ liệu cá nhân?</h2></div>
+    <div class="dialog__body"><p class="small muted">Hồ sơ kỹ năng, vị trí, lộ trình, lịch sử điểm và tài khoản sẽ bị xóa vĩnh viễn. Không thể hoàn tác.</p></div>
+    <div class="dialog__foot"><button class="btn btn--ghost" type="button" data-close-dialog>Hủy</button><button class="btn btn--danger" type="button" id="confirm-delete">Xóa vĩnh viễn</button></div>
+  </dialog>
+  <div data-component="footer"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/engine.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pages/profile.js"></script>
+</body>
+</html>
